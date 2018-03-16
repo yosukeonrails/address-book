@@ -5,19 +5,12 @@ export class AddressBook extends React.Component {
   
    constructor(props){
       super(props);
-      this.sort= this.sort.bind(this);
-      console.log(props.address_book.sortBookBy)
+
       this.state= { chunk:5 , page:0 , displayed:this.props.address_book.displayed, name:"Untitled"}
-      console.log(this.state.displayed)
-
+   
     }
 
-    sort(){
-       let book = this.props.address_book;
-       book.sortBookBy("last_name");
-       book.pageNate(this.state.chunk , this.state.page);
-       this.setState({displayed:book.displayed})
-    }
+  
      
    render() {
     
@@ -70,8 +63,6 @@ export class AddressBook extends React.Component {
 
         </div>
 
-
-       
       </div>
     );
   }
@@ -85,12 +76,37 @@ class Sorter extends React.Component {
            super(props);
         }
 
+        openOptions (){
+              
+        }
+
         render(){
             let arrow= <i className="fas fa-sort-down"></i>;
 
              return(
                  <div className="sorter">
-                    <span>Sort by:</span><div className="sorter-criteria">Last Name {arrow} </div>
+                    <span>Sort by:</span><div className="sorter-criteria" onClick={this.openOptions}>
+                    Last Name {arrow} 
+                    
+                    
+                    <div className="sorter-options-container">
+                    <div id="sorter-arrow-up" ><i className="fas fa-caret-up"></i></div>
+                        
+                        <div className="sorter-options">
+                        <div id="sort-by-header">  <li ></li></div>
+                        <ul>
+                            <li>First Name</li>
+                            <li>Last Name</li>
+                            <li>Country</li>
+                            <li>City</li>
+                            <li>State</li>
+                        </ul> 
+                        </div>
+                       
+                    </div>
+                    </div>
+
+                
                  </div>
              )
         }
