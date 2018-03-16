@@ -8,12 +8,16 @@
         this.addressList=addressList;  
         this.displayed = this.pageNate(5,0);
         this.name=name;
-        
+        this.page= page;
+        this.chunk= chunk;
+        this.page_end= this.page*this.chunk+this.chunk;
+        this.page_start = this.page_end - this.chunk +1;
+        this.length= this.addressList.length;
      }
 
      pageNate(chunk, page){
         
-    
+        console.log("paginate ", chunk , page);
         let start= page*chunk;
         let end= start+chunk;
 
@@ -26,6 +30,8 @@
         if(section.length === 0 ){ return null  }
 
         this.displayed = section;
+        this.chunk = chunk;
+        this.page= page;
         
          return section
     } 
