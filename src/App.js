@@ -23,17 +23,18 @@ class App extends React.Component {
       super(props)
       
       this.selectBook = this.selectBook.bind(this);
-
+      this.sort = this.sort.bind(this);
       console.log(user1)
-      this.state = { user:user1 , selected_book:0 , displayed: user1.addressBooks[0].displayed };
+      this.state = { user:user1 , selected_book:0 , displayed: user1.addressBooks[0].displayed , chunk:5, page:0 };
 
     }
 
-    sort(){
+    sort(criteria){
 
       let book = this.state.user.addressBooks[this.state.selected_book];
-      book.sortBookBy("last_name");
+      book.sortBookBy(criteria);
       book.pageNate(this.state.chunk , this.state.page);
+      console.log(book);
       this.setState({displayed:book.displayed})
 
    }
@@ -51,7 +52,7 @@ class App extends React.Component {
 
    render() {
     console.log('re-rendering')
-
+    console.log(this.state.displayed);
 
     return (
       <div className="App">
