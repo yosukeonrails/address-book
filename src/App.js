@@ -26,17 +26,16 @@ class App extends React.Component {
       this.sort = this.sort.bind(this);
       this.pagenate = this.pagenate.bind(this);
 
-      console.log(user1)
+      user1.addressBooks[0].pageNate(10 , 0);
+
       this.state = { 
-        user:user1 , 
-        selected_book:0 , 
-        book:user1.addressBooks[0],
-        displayed: user1.addressBooks[0].displayed ,
-        chunk:user1.addressBooks[0].chunk, 
-        page:user1.addressBooks[0].page,
-        page_start:user1.addressBooks[0].page_start,
-        page_end:user1.addressBooks[0].page_end,
-        length:user1.addressBooks[0].addressList.length
+
+          user:user1 , 
+          selected_book:0 , 
+          book:user1.addressBooks[0],
+          displayed: user1.addressBooks[0].displayed,
+          current_chunk:10
+
          };
 
 
@@ -47,7 +46,7 @@ class App extends React.Component {
 
       let book = this.state.user.addressBooks[this.state.selected_book];
       book.sortBookBy(criteria);
-      book.pageNate(this.state.chunk , this.state.page);
+      book.pageNate(this.state.book.chunk , this.state.book.page);
       console.log(book);
       this.setState({displayed:book.displayed})
 
@@ -61,7 +60,8 @@ class App extends React.Component {
 
       this.setState({
       book:book,
-      displayed:book.displayed
+      displayed:book.displayed,
+      current_chunk:chunk
       });
 
 
@@ -70,10 +70,14 @@ class App extends React.Component {
 
      
    selectBook(id){
+      
+      let book = this.state.user.addressBooks[id];
 
-  
+      book.pageNate(this.state.current_chunk, 0 );
+
       this.setState({ selected_book:id,
-        displayed: this.state.user.addressBooks[id].displayed
+        displayed: book.displayed,
+        book:book
       })
   
    }
