@@ -82,7 +82,7 @@
 .nav-right{
   height: 1px;
   float: right;
-  width: 330px;
+  width: 400px;
 }
 
 .pagenator{
@@ -105,9 +105,9 @@
 }
 
 .pagenator-arrows{
-  float: left;
+  float: right;
   color: #1DAFE9;
-  margin-left: 10px;
+  margin-right: 20px;
 }
 #pagenator-arrow{
   margin-left: 10px;
@@ -116,7 +116,7 @@
 }
 .items-of-total{
   float: left;
-  margin-left: 35px;
+  margin-left: 60px;
 }
 
 

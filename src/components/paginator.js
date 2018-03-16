@@ -7,12 +7,22 @@ class Pagenator extends React.Component {
        super(props);
        this.state={options:"none"}
        this.selectOption = this.selectOption.bind(this);
-    
+       this.selectPage = this.selectPage.bind(this);
     }
 
     openOptions (option){
         let switch_to=  (option ==="none") ? "block" : "none";
         this.setState({options:switch_to}); 
+
+     }
+
+     selectPage(direction){
+
+        let current_page = this.props.book.page;   
+        let newPage =  (direction == "next") ? current_page+1 : current_page-1;
+         let end = newPage*this.props.book.chunk+this.props.book.chunk;
+        if(current_page < 0 || current_page >= end ){ newPage= this.props.book.page };
+        this.props.pagenate(this.props.book.chunk , newPage)
 
      }
 
@@ -61,10 +71,10 @@ class Pagenator extends React.Component {
 
                </div>
 
-                <div className="pagenator-arrows">
+                <div className="pagenator-arrows" >
                    
-                   <span id="pagenator-arrow"><i className="fas fa-chevron-left"></i></span>
-                   <span id="pagenator-arrow"><i className="fas fa-chevron-right"></i></span>
+                   <span   onClick={(event)=>{ this.selectPage("prev")}} id="pagenator-arrow" ><i className="fas fa-chevron-left"></i></span>
+                   <span  onClick={(event)=>{ this.selectPage("next")}} id="pagenator-arrow" ><i  className="fas fa-chevron-right"></i></span>
                    
                 </div>
 
