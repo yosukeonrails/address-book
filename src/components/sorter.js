@@ -8,13 +8,19 @@ class Sorter extends React.Component {
        super(props);
     
         this.selectOption = this.selectOption.bind(this);
-        this.state={options:"none"}
+        this.state={ options_open:false,options_animation:"", arrow_style:{}}
            
     }
 
-    openOptions (option){
-       let switch_to=  (option ==="none") ? "block" : "none";
-       this.setState({options:switch_to}); 
+    openOptions (options_open){
+        let arrow= {};
+        console.log(options_open)
+
+        let animation=  (options_open) ? "fade-out" : "fade-in";
+            options_open = (options_open) ? false : true;
+            if(!options_open){  arrow =  {transform:"rotate(180deg)" , marginTop:"5px"} }
+            
+         this.setState({options_animation:animation, arrow_style:arrow, options_open:options_open}); 
     }
 
     selectOption(e){
@@ -25,21 +31,27 @@ class Sorter extends React.Component {
 
     render(){
         
-        let arrow= <i className="fas fa-sort-down"></i>;
-        
+        let down= <i className="fas fa-sort-down"></i>;
+       // let up = <i className="fas fa-sort-up"></i> 
+        // let arrow= (this.state.options === "block") ? : ;
+        console.log(this.state.options_animation)
 
          return(
              <div className="sorter">
                 <span>Sort by:</span>
                 
                 <div className="sorter-criteria" >
-                        <div className="sorter-criteria-toggle" onClick={()=>{ this.openOptions(this.state.options) }}> Last Name {arrow} </div>
-                        <div style={{display:this.state.options}}  className="sorter-options-container">
+                        <div className="sorter-criteria-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
+                        <span >Last Name</span> 
+                        <span id="sorter-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style}  >{down}</span> 
+                        </div>
+                      
+                        <div style={{display:this.state.options, opacity:this.state.opacity}}  className={ "sorter-options-container " + this.state.options_animation}>
                                 <div id="sorter-arrow-up" ><i className="fas fa-caret-up"></i></div>
 
-                                <div onMouseLeave={()=>{this.openOptions("block")}} className="sorter-options">
-                                    <div id="sort-by-header">  <li ></li></div>
-                                    <ul onClick={(event)=>{this.openOptions("block"); this.selectOption(event)}}  >
+                                <div onMouseLeave={()=>{this.openOptions(true)}} className="sorter-options">
+                                    <div id="sort-by-header"  onClick={()=>{ this.openOptions(this.state.options) }} >  <li ></li></div>
+                                    <ul onClick={(event)=>{this.openOptions(true); this.selectOption(event)}}  >
                                         <li id="first_name">First Name</li>
                                         <li id="last_name">Last Name</li>
                                         <li id="country">Country</li>

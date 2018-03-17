@@ -18,12 +18,12 @@ export class AddressBook extends React.Component {
 
   
      
-   render() {
+    render() {
 
-    let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
-    let contacts = this.props.displayed.map((contact,i)=>{
-        return <Contact data={contact} key={i} id={i}/>
-    })
+        let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
+        let contacts = this.props.displayed.map((contact,i)=>{
+            return <Contact data={contact} key={i} id={i}/>
+        })
      
 
     return (
