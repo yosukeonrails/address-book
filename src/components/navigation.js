@@ -50,7 +50,6 @@ class NavItem extends React.Component {
      let backColor= (this.props.selected) ? '#7F56C5' :  '#282653';
 
          return(
-
             <div onClick={()=>{this.select(this.props.id)}} className="nav-item" style={{backgroundColor:backColor}}  >
                 <h1> {this.props.name} </h1>
             </div>

@@ -40,7 +40,7 @@
         this.chunk = chunk;
         this.page= page;
         this.page_end= (end > this.addressList.length)? this.addressList.length : this.page*this.chunk+this.chunk;
-        //start + 1 
+
         this.page_start = (this.page_end ===0 )? 0 : start+1;
         this.length= this.addressList.length;
 
@@ -61,9 +61,10 @@
             if (nameA > nameB) {
             return 1;
             }
-            // names must be equal
+
             return 0;
             });
+            
         return this.addressList
     } 
 

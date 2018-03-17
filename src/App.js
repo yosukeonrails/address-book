@@ -36,7 +36,7 @@ class App extends React.Component {
           selected_book:0 , 
           book:user1.addressBooks[0],
           displayed: user1.addressBooks[0].displayed,
-          current_chunk:10
+          current_chunk:10   // chunk default to be 10.
          };
     }
 
@@ -65,24 +65,30 @@ class App extends React.Component {
    }
     
     addNewBook(){
+
        let book= new AddressBook();
+
        user1.addAddressBook(book)
 
        this.setState({
         user:user1
        })
+
        this.selectBook(user1.addressBooks.length-1)
     }
 
    pagenate( chunk , pages){
 
       let book = this.state.user.addressBooks[this.state.selected_book];
+
       book.pageNate(chunk, pages);
 
       this.setState({
-      book:book,
-      displayed:book.displayed,
-      current_chunk:chunk
+
+        book:book,
+        displayed:book.displayed,
+        current_chunk:chunk
+
       });
 
 
@@ -93,7 +99,8 @@ class App extends React.Component {
       let book = this.state.user.addressBooks[id];
       book.pageNate(this.state.current_chunk, 0 );
 
-      this.setState({ selected_book:id,
+      this.setState({ 
+        selected_book:id,
         displayed: book.displayed,
         book:book
       })
