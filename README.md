@@ -1,5 +1,5 @@
 
-##ADDRESS BOOK WEB APPLICATION / UI UX CHALLENGE
+## ADDRESS BOOK WEB APPLICATION / UI UX CHALLENGE
 
 By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
@@ -91,7 +91,7 @@ By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
    The components in the `components` folder, are each divided up according to their functionality, which keeps the code organized while making many functionalities and components in the application re-usable. 
 
-   ## `User` and `AddressBook` class  "On object-orientation"
+   ## `User` and `AddressBook` class."On-Object-Orientation"
 
    The application was built from the beginning, with object oriented programming in mind. Reason being that most functions and data emanates from those two classes.
    The `User` class is a user that owns many address books and each `AddressBook` class is an address book that holds many contacts. Then each class has methods that will modify or add elements to the data that they hold such as the `sortbookBy` and the `pageNate` methods.
