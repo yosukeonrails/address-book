@@ -17,8 +17,8 @@ class Pagenator extends React.Component {
 
         let animation=  (options_open) ? "fade-out" : "fade-in";
             options_open = (options_open) ? false : true;
-            if(!options_open){  arrow =  {transform:"rotate(180deg)" , marginTop:"5px"} }
-            
+            if(options_open){  arrow =  {transform:"rotate(180deg)" , marginTop:"5px"} }
+  
          this.setState({options_animation:animation, arrow_style:arrow, options_open:options_open}); 
     }
 
@@ -42,13 +42,17 @@ class Pagenator extends React.Component {
 
     render(){
         let arrow= <i className="fas fa-sort-down"></i>;
-          
+        console.log(this.state.arrow_style)  
+
          return(
              <div className="pagenator">
 
                <div className="items-per-page">items per page:</div>
                 <div className="pagenator-chunk">
-                <div className="pagenator-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> {this.props.book.chunk} {arrow}  </div>
+                <div className="pagenator-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
+                <span >{this.props.book.chunk}</span> 
+                <span id="pagenation-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style} > {arrow} </span> 
+                 </div>
                
 
                 <div  className={"sorter-options-container "+ this.state.options_animation}>
