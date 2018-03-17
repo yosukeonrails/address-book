@@ -30,6 +30,7 @@ class App extends React.Component {
       this.sort = this.sort.bind(this);
       this.pagenate = this.pagenate.bind(this);
       this.addNewBook = this.addNewBook.bind(this);
+      this.generateContacts= this.generateContacts.bind(this);
 
       user1.addressBooks[0].pageNate(10 , 0);
 
@@ -45,8 +46,17 @@ class App extends React.Component {
     generateContacts(n){
 
       let u = new User();
-       let contact_array=u.contactGenerator(1000 , address_book_array);   
-        console.log(contact_array);
+
+       let contact_array=u.contactGenerator(n , address_book_array);   
+      
+       user1.addressBooks[this.state.selected_book].addList(contact_array);
+
+       this.setState({
+      
+        book: user1.addressBooks[this.state.selected_book],
+        displayed:user1.addressBooks[this.state.selected_book].displayed
+      
+        })
     }
 
     sort(criteria){
@@ -54,12 +64,10 @@ class App extends React.Component {
       let book = this.state.user.addressBooks[this.state.selected_book];
       book.sortBookBy(criteria);
       book.pageNate(this.state.book.chunk , this.state.book.page);
-      console.log(book);
       this.setState({displayed:book.displayed})
    }
     
     addNewBook(){
-      console.log("adding new book")
        let book= new AddressBook();
        user1.addAddressBook(book)
 
@@ -85,7 +93,6 @@ class App extends React.Component {
 
    selectBook(id){
       
-      console.log(this.state.user);
       let book = this.state.user.addressBooks[id];
       book.pageNate(this.state.current_chunk, 0 );
 
@@ -98,7 +105,6 @@ class App extends React.Component {
 
    render() {
 
-      console.log(this.state);
 
     return (
       <div className="App">

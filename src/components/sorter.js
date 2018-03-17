@@ -14,11 +14,11 @@ class Sorter extends React.Component {
 
     openOptions (options_open){
         let arrow= {};
-        console.log(options_open)
+
         
         let animation=  (options_open) ? "fade-out" : "fade-in";
         options_open = (options_open) ? false : true;
-        console.log(animation)
+  
          if(options_open){  arrow =  {transform:"rotate(180deg)" , marginTop:"5px"} }
          this.setState({options_animation:animation, arrow_style:arrow, options_open:options_open}); 
     }
@@ -33,9 +33,7 @@ class Sorter extends React.Component {
     render(){
         
         let down= <i className="fas fa-sort-down"></i>;
-       // let up = <i className="fas fa-sort-up"></i> 
-        // let arrow= (this.state.options === "block") ? : ;
-        console.log(this.state.options_animation)
+
 
          return(
              <div className="sorter">

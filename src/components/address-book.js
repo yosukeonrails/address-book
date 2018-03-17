@@ -9,23 +9,45 @@ export class AddressBook extends React.Component {
   
    constructor(props){
       super(props);
-
-      this.state= { 
-          
-        displayed:this.props.address_book.displayed, name:"Untitled"}
-   
+        this.handleInput = this.handleInput.bind(this);
+        this.generate = this.generate.bind(this);
+  
+        this.state= { 
+        volume:1000,
+        displayed:this.props.address_book.displayed, name:this.props.address_book.name} 
     }
 
+    handleInput(e){
+        let num = parseInt(e.target.value);
+
+        let vol  = ( num < 0 || num > 100000) ? 1000 : num
+
+        this.setState({
+            volume: num
+        })
+
+    }
+    generate(){
+        this.props.generateContacts(this.state.volume)
+    }
   
      
     render() {
 
+    
+
         let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
-        let contacts = <div className="no-addresses"><h1> There are no adresses yet.</h1><button onClick={this.props.generateContacts} >Generate Random Contacts</button></div>;
+
+        let contacts = 
+        <div className="no-addresses">
+        <h1> There are no adresses yet.</h1>
+        <button onClick={this.generate} >Generate Random Contacts </button> X
+        <input onChange={ (event)=>{ this.handleInput(event) } } type="number" min="0" max="100000" ></input> 
+        </div>;
 
         if(this.props.displayed.length !== 0 ){
            contacts = this.props.displayed.map((contact,i)=>{
-                return <Contact data={contact} key={i} id={i}/>
+                return <Contact data={contact} key={i} id={i}  />
             })
         }
      
@@ -38,7 +60,7 @@ export class AddressBook extends React.Component {
         <div className="address-book-nav">
 
         <div className="nav-left">
-            <span id="address-book-name">{this.state.name}</span> <Sorter sort= {this.props.sort}/>     
+            <span id="address-book-name">{this.props.address_book.name}</span> <Sorter sort= {this.props.sort}/>     
         </div>
        
 
@@ -83,8 +105,9 @@ class Contact extends React.Component {
     }
 
     render(){
-   
-
+        
+        let delay = this.props.key;
+     //   animation: "fade-in 0."+delay+"s ease-in forwards", transition:"opacity 300ms ease-out"
         let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
          let color = (this.props.id %2 === 0 ) ? "#F0F0F0" : "#F7F7F7"
          return(

@@ -13,7 +13,6 @@ class Pagenator extends React.Component {
    
     openOptions (options_open){
         let arrow= {};
-        console.log(options_open)
 
         let animation=  (options_open) ? "fade-out" : "fade-in";
             options_open = (options_open) ? false : true;
@@ -41,8 +40,7 @@ class Pagenator extends React.Component {
 
 
     render(){
-        let arrow= <i className="fas fa-sort-down"></i>;
-        console.log(this.state.arrow_style)  
+        let arrow= <i className="fas fa-sort-down"></i>;  
 
          return(
              <div className="pagenator">

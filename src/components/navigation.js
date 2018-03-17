@@ -5,13 +5,12 @@ export class Navigation extends React.Component {
   
    constructor(props){
       super(props)
-       console.log(props)
     }
      
    render() {
     let selected_book = this.props.selected_book;
     let navItems = this.props.user.addressBooks.map((book, i )=>{
-        console.log(this.props)
+
           let selected = (selected_book == i ) ? true : false
          
           return <NavItem name={book.name} selected={selected} id={i} key={i} selectBook={this.props.selectBook} />
@@ -43,7 +42,7 @@ class NavItem extends React.Component {
     }
 
     select(id){
-        console.log(id)
+    
        this.props.selectBook(id)
     }
 

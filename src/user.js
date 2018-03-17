@@ -30,7 +30,7 @@ const AddressBook = require('./address-book.js');
     contactGenerator(n, arrays){
           
 
-        let location=["street", "city", "state", "zip","phone","country"]
+        let location=["address", "city", "state", "zip","phone","country"]
         let new_array=[];
         
         for(let i=0; i < n ; i++){

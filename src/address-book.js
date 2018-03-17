@@ -15,6 +15,13 @@
         this.length= this.addressList.length;
      }
 
+     addList(array){
+       
+        this.addressList= [...this.addressList, ...array];
+        this.displayed = this.pageNate(this.chunk, this.page);
+
+     }
+
      pageNate(chunk, page){
         
         
@@ -22,7 +29,7 @@
         let end= start+chunk;
 
         if(page < 0  ){
-        return null
+             return null
         }
 
         let section = this.addressList.slice(start, end)
