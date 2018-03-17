@@ -29,8 +29,8 @@ const AddressBook = require('./address-book.js');
 
     contactGenerator(n, arrays){
           
-
-        let location=["address", "city", "state", "zip","phone","country"]
+       
+        let fields=["first_name","last_name","address", "city", "state", "zip","phone","country"]
         let new_array=[];
         
         for(let i=0; i < n ; i++){
@@ -40,9 +40,9 @@ const AddressBook = require('./address-book.js');
              let max = array.length-1;
              let ranContact= {};
              let ranLocation= array[Math.floor(Math.random()*max)+0];
-              
-              for(let key in array[0]){
-                  ranContact[key]= (location.includes(key)) ? ranLocation[key] :  array[Math.floor(Math.random()*max)+0][key];
+          
+              for(let key in fields){
+                  ranContact[fields[key]]= (fields[key]!== "first_name" || fields[key]!== "last_name") ? ranLocation[fields[key]] :  array[Math.floor(Math.random()*max)+0][fields[key]];
               }
               
               new_array.push(ranContact);

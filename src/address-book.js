@@ -27,8 +27,7 @@
         
         let start= page*chunk;
         let end= start+chunk;
-        console.log(start);
-        console.log("beings")
+
         if(page < 0  ){
              return null
         }
@@ -80,9 +79,3 @@
 module.exports = AddressBook;
 
  
-
-// class Contact{
-
-    
-
-// }

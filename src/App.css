@@ -85,7 +85,7 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px;
-  min-width: 845px;
+  min-width: 1000px;
   padding-bottom: 100px;
 }
 
@@ -136,10 +136,17 @@
   width: 400px;
 }
 
+.pagenator-left{
+  float: left;
+  width: 150px;
+}
+
 .pagenator{
-  font-size: 0.875rem; 
-  font-weight: 700, 400, 700; 
+  font-size: 0.875rem;
+  font-weight: 700, 400, 700;
   color: #7F56C5;
+  height: 1px;
+  float: right;
 }
 .pagenator span{
   float: none;
@@ -166,8 +173,7 @@
   cursor: pointer;
 }
 .items-of-total{
-  float: left;
-  margin-left: 60px;
+  float: right;
 }
 
 

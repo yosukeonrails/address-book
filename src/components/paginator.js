@@ -47,13 +47,14 @@ class Pagenator extends React.Component {
          return(
              <div className="pagenator">
 
-               <div className="items-per-page">items per page:</div>
-                <div className="pagenator-chunk">
-                <div className="pagenator-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
-                <span >{this.props.book.chunk}</span> 
-                <span id="pagenation-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style} > {arrow} </span> 
+                <div className="pagenator-left">
+                    <div className="items-per-page">items per page:</div>
+                    <div className="pagenator-chunk">
+                    <div className="pagenator-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
+                    <span >{this.props.book.chunk}</span> 
+                    <span id="pagenation-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style} > {arrow} </span> 
+                    </div>
                  </div>
-               
 
                 <div  className={"sorter-options-container "+ this.state.options_animation}>
 
@@ -78,15 +79,15 @@ class Pagenator extends React.Component {
                <div className="items-of-total">
                 {this.props.book.page_start} - {this.props.book.page_end} of {this.props.book.length}
           
-
+                        <div className="pagenator-arrows" >
+                        
+                        <span   onClick={(event)=>{ this.selectPage("prev")}} id="pagenator-arrow" ><i className="fas fa-chevron-left"></i></span>
+                        <span  onClick={(event)=>{ this.selectPage("next")}} id="pagenator-arrow" ><i  className="fas fa-chevron-right"></i></span>
+                        
+                        </div>
                </div>
 
-                <div className="pagenator-arrows" >
-                   
-                   <span   onClick={(event)=>{ this.selectPage("prev")}} id="pagenator-arrow" ><i className="fas fa-chevron-left"></i></span>
-                   <span  onClick={(event)=>{ this.selectPage("next")}} id="pagenator-arrow" ><i  className="fas fa-chevron-right"></i></span>
-                   
-                </div>
+            
 
              </div>
          )

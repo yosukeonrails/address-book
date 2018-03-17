@@ -115,7 +115,7 @@ class Contact extends React.Component {
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.first_name}</div>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.last_name}</div>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.country}</div>
-                <div style={{width:fied_size.large}} className="contact-fields-col">{this.props.data.street} St</div>
+                <div style={{width:fied_size.large}} className="contact-fields-col">{this.props.data.address}</div>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.city}</div>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.state}</div>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.zip}</div>
