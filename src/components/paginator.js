@@ -26,7 +26,9 @@ class Pagenator extends React.Component {
         let current_page = this.props.book.page;   
         let newPage =  (direction == "next") ? current_page+1 : current_page-1;
          let end = newPage*this.props.book.chunk+this.props.book.chunk;
-        if(current_page < 0 || current_page >= end ){ newPage= this.props.book.page };
+        let start = end - this.props.chunk+1;
+
+        if(current_page < 0 || current_page >= end){ newPage= this.props.book.page };
         this.props.pagenate(this.props.book.chunk , newPage)
 
      }

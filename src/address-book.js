@@ -27,21 +27,24 @@
         
         let start= page*chunk;
         let end= start+chunk;
-
+        console.log(start);
+        console.log("beings")
         if(page < 0  ){
              return null
         }
 
         let section = this.addressList.slice(start, end)
+        console.log(start);
         
+        if(section.length === 0 && this.addressList.length > 0 || start > this.addressList.length){ return null  }
         
-        if(section.length === 0 && this.addressList.length > 0 ){ return null  }
 
         this.displayed = section;
         this.chunk = chunk;
         this.page= page;
-        this.page_end= this.page*this.chunk+this.chunk;
-        this.page_start = this.page_end - this.chunk +1;
+        this.page_end= (end > this.addressList.length)? this.addressList.length : this.page*this.chunk+this.chunk;
+        //start + 1 
+        this.page_start = (this.page_end ===0 )? 0 : start+1;
         this.length= this.addressList.length;
 
          return section
