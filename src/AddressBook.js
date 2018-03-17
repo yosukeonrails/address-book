@@ -33,11 +33,9 @@
         }
 
         let section = this.addressList.slice(start, end)
-        console.log(start);
-        
+
         if(section.length === 0 && this.addressList.length > 0 || start > this.addressList.length){ return null  }
         
-
         this.displayed = section;
         this.chunk = chunk;
         this.page= page;

@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import AddressBookComponent from './components/address-book.js'
 import Navigation from './components/navigation.js'
 import {contact_list1, contact_list2,contact_list3,contact_list4} from './contacts.js';
 
+let AddressBook = require('./AddressBook.js')
+let User = require('./User.js');
 
 let address_book_array= [contact_list1, contact_list2,contact_list3,contact_list4];
-let nameArray= ["Nav Item 1", "Nav Item 2", "Nav Item 3"];
-let AddressBook = require('./address-book.js')
 
-let User = require('./user.js');
 // creates a mock up user to create mock up data
 
-const user1 =  new User();
+  const user1 =  new User();
 
- //user1.addManyAddressBooks(address_book_array, nameArray);
   user1.contactGenerator(100000 , address_book_array);
   user1.contactGenerator(1000 , address_book_array);
   user1.contactGenerator(1000 , address_book_array);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Pagenator from './paginator.js';
 import  Sorter  from './sorter.js';
-let Book = require('../address-book.js');
+let Book = require('../AddressBook.js');
 
 
 

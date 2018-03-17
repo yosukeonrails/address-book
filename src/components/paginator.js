@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react';
-let Book = require('../address-book.js');
+let Book = require('../AddressBook.js');
 
 class Pagenator extends React.Component {
     constructor(props){
        super(props);
-       this.state={ options_open:false, options_animation:"", arrow_style:{}}
+       this.state={ options_open:true, options_animation:"", arrow_style:{}}
        this.selectOption = this.selectOption.bind(this);
        this.selectPage = this.selectPage.bind(this);
     }
@@ -49,30 +49,34 @@ class Pagenator extends React.Component {
 
                 <div className="pagenator-left">
                     <div className="items-per-page">items per page:</div>
+
                     <div className="pagenator-chunk">
+
+                    <div  className={"sorter-options-container "+ this.state.options_animation}>
+
+                    <div id="pagenate-arrow" ><i className="fas fa-caret-up"></i></div>
+
+                    <div onMouseLeave={()=>{this.openOptions(true)}} id="pagenate-options" className="sorter-options">
+                    <div id="sort-by-header">  <li ></li></div>
+                    <ul onClick={(event)=>{this.openOptions(true); this.selectOption(event)}}  >
+                    <li value="5">5</li>
+                    <li value="10">10</li>
+                    <li value="25">25</li>
+                    <li value="50">50</li>
+                    <li value="75">75</li>
+                    <li value="100">100</li>
+                    </ul> 
+                    </div>
+
+                    </div>
+
                     <div className="pagenator-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
                     <span >{this.props.book.chunk}</span> 
                     <span id="pagenation-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style} > {arrow} </span> 
                     </div>
                  </div>
 
-                <div  className={"sorter-options-container "+ this.state.options_animation}>
-
-                        <div id="pagenate-arrow" ><i className="fas fa-caret-up"></i></div>
-
-                        <div onMouseLeave={()=>{this.openOptions(true)}} id="pagenate-options" className="sorter-options">
-                            <div id="sort-by-header">  <li ></li></div>
-                            <ul onClick={(event)=>{this.openOptions(true); this.selectOption(event)}}  >
-                                <li value="5">5</li>
-                                <li value="10">10</li>
-                                <li value="25">25</li>
-                                <li value="50">50</li>
-                                <li value="75">75</li>
-                                <li value="100">100</li>
-                            </ul> 
-                        </div>
-
-                </div>
+              
                 </div>
                
 

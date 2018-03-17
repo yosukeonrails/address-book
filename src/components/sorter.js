@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-let Book = require('../address-book.js');
+let Book = require('../AddressBook.js');
 
 class Sorter extends React.Component {
     constructor(props){
