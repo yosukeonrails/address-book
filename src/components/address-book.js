@@ -21,9 +21,14 @@ export class AddressBook extends React.Component {
     render() {
 
         let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
-        let contacts = this.props.displayed.map((contact,i)=>{
-            return <Contact data={contact} key={i} id={i}/>
-        })
+        let contacts = <div className="no-addresses"><h1> There are no adresses yet.</h1><button onClick={this.props.generateContacts} >Generate Random Contacts</button></div>;
+
+        if(this.props.displayed.length !== 0 ){
+           contacts = this.props.displayed.map((contact,i)=>{
+                return <Contact data={contact} key={i} id={i}/>
+            })
+        }
+     
      
 
     return (

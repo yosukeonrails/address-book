@@ -3,9 +3,9 @@
  
  class AddressBook {
 
-     constructor(addressList, name = null, chunk = 5 , page =0){    
+     constructor(addressList=[], name =null, chunk = 5 , page =0){    
 
-        this.addressList=addressList;  
+        this.addressList= addressList ;  
         this.displayed = this.pageNate(5,0);
         this.name=name;
         this.page= page;
@@ -17,7 +17,7 @@
 
      pageNate(chunk, page){
         
-    
+        
         let start= page*chunk;
         let end= start+chunk;
 
@@ -26,8 +26,9 @@
         }
 
         let section = this.addressList.slice(start, end)
-
-        if(section.length === 0 ){ return null  }
+        
+        
+        if(section.length === 0 && this.addressList.length > 0 ){ return null  }
 
         this.displayed = section;
         this.chunk = chunk;
@@ -58,6 +59,11 @@
             });
         return this.addressList
     } 
+
+ 
+
+    
+
  }
 
 

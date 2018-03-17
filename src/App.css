@@ -8,7 +8,7 @@
 
 .fade-out{
  animation: fade-out 0.2s ease-in forwards;
- transition:opacity 300ms ease-out
+ transition: opacity 300ms ease-out
 }
 
 @keyframes fade-in{
@@ -28,7 +28,7 @@
  }
  to{
    opacity: 0;
-   visibility: hidden;
+ 
  }
 }
 
@@ -57,6 +57,20 @@
   box-sizing: border-box;
   background: #7F56C5;
   padding-top: 11px;
+}
+
+.new-address-book{
+  background-color: #98d4b8;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+
+.new-address-book h2{
+   color:white;
+   font-size: 20px;
+   text-align: center;
+   margin: 0;
 }
 
 .nav-item h1{
@@ -175,6 +189,19 @@
   float: left;
   padding-top: 10px;
   padding-left: 20px;
+}
+
+.no-addresses{
+  text-align: center;
+  background-color: #fbfbfb;
+  height: 100px;
+  padding-top: 40px;
+}
+
+.no-addresses h1{
+  margin: 0;
+  font-size: 20px;
+  color: #292653;
 }
 .contact{
   height: 32px;

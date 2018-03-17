@@ -11,7 +11,7 @@ export class Navigation extends React.Component {
    render() {
     let selected_book = this.props.selected_book;
     let navItems = this.props.user.addressBooks.map((book, i )=>{
-
+        console.log(this.props)
           let selected = (selected_book == i ) ? true : false
          
           return <NavItem name={book.name} selected={selected} id={i} key={i} selectBook={this.props.selectBook} />
@@ -23,7 +23,9 @@ export class Navigation extends React.Component {
          <div>
             {navItems}
          </div>
-
+         <div onClick={this.props.addNewBook} className="nav-item new-address-book">
+                  <h2><i class="fas fa-plus-square"></i></h2>
+         </div>   
       </div>
     );
   }
@@ -41,6 +43,7 @@ class NavItem extends React.Component {
     }
 
     select(id){
+        console.log(id)
        this.props.selectBook(id)
     }
 

@@ -8,6 +8,8 @@ const AddressBook = require('./address-book.js');
     }
     
     addAddressBook(book){
+         let book_name = (book.name)? book.name : "untitled "+this.addressBooks.length;
+         book.name = book_name;
          this.addressBooks.push(book);       
     }
 
@@ -24,6 +26,35 @@ const AddressBook = require('./address-book.js');
         }
 
     }
+
+    contactGenerator(n, arrays){
+          
+
+        let location=["street", "city", "state", "zip","phone","country"]
+        let new_array=[];
+        
+        for(let i=0; i < n ; i++){
+           
+            let ran_array= Math.floor(Math.random()* (arrays.length-1))+0;
+             let array = arrays[ran_array];
+             let max = array.length-1;
+             let ranContact= {};
+             let ranLocation= array[Math.floor(Math.random()*max)+0];
+              
+              for(let key in array[0]){
+                  ranContact[key]= (location.includes(key)) ? ranLocation[key] :  array[Math.floor(Math.random()*max)+0][key];
+              }
+              
+              new_array.push(ranContact);
+        }
+        
+        let number =(  this.addressBooks.length === 0 ) ? "" : this.addressBooks.length; 
+        let b= new AddressBook(new_array,"untitled "+number);
+        
+        this.addAddressBook(b);
+        return new_array;
+    }
+
      
  }
 

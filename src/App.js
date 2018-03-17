@@ -3,10 +3,10 @@ import './App.css';
 
 import AddressBookComponent from './components/address-book.js'
 import Navigation from './components/navigation.js'
-import {contact_list1, contact_list2,contact_list4} from './contacts.js';
+import {contact_list1, contact_list2,contact_list3,contact_list4} from './contacts.js';
 
 
-let address_book_array= [contact_list1, contact_list2,contact_list4];
+let address_book_array= [contact_list1, contact_list2,contact_list3,contact_list4];
 let nameArray= ["Nav Item 1", "Nav Item 2", "Nav Item 3"];
 let AddressBook = require('./address-book.js')
 
@@ -14,7 +14,11 @@ let User = require('./user.js');
 // creates a mock up user to create mock up data
 
 const user1 =  new User();
-user1.addManyAddressBooks(address_book_array, nameArray);
+
+ //user1.addManyAddressBooks(address_book_array, nameArray);
+  user1.contactGenerator(100000 , address_book_array);
+  user1.contactGenerator(1000 , address_book_array);
+  user1.contactGenerator(1000 , address_book_array);
 
 
 class App extends React.Component {
@@ -25,21 +29,24 @@ class App extends React.Component {
       this.selectBook = this.selectBook.bind(this);
       this.sort = this.sort.bind(this);
       this.pagenate = this.pagenate.bind(this);
+      this.addNewBook = this.addNewBook.bind(this);
 
       user1.addressBooks[0].pageNate(10 , 0);
 
       this.state = { 
-
           user:user1 , 
           selected_book:0 , 
           book:user1.addressBooks[0],
           displayed: user1.addressBooks[0].displayed,
           current_chunk:10
-
          };
+    }
 
+    generateContacts(n){
 
-
+      let u = new User();
+       let contact_array=u.contactGenerator(1000 , address_book_array);   
+        console.log(contact_array);
     }
 
     sort(criteria){
@@ -49,9 +56,18 @@ class App extends React.Component {
       book.pageNate(this.state.book.chunk , this.state.book.page);
       console.log(book);
       this.setState({displayed:book.displayed})
-
    }
+    
+    addNewBook(){
+      console.log("adding new book")
+       let book= new AddressBook();
+       user1.addAddressBook(book)
 
+       this.setState({
+        user:user1
+       })
+       this.selectBook(user1.addressBooks.length-1)
+    }
 
    pagenate( chunk , pages){
 
@@ -67,12 +83,10 @@ class App extends React.Component {
 
   }
 
-
-     
    selectBook(id){
       
+      console.log(this.state.user);
       let book = this.state.user.addressBooks[id];
-
       book.pageNate(this.state.current_chunk, 0 );
 
       this.setState({ selected_book:id,
@@ -84,13 +98,14 @@ class App extends React.Component {
 
    render() {
 
+      console.log(this.state);
 
     return (
       <div className="App">
 
-          <Navigation user={this.state.user} selected_book={this.state.selected_book} selectBook={this.selectBook} />
+          <Navigation user={this.state.user} addNewBook={this.addNewBook} selected_book={this.state.selected_book} selectBook={this.selectBook} />
          
-          <AddressBookComponent  pagenate={this.pagenate} book={this.state.book} sort={this.sort} displayed={this.state.displayed} address_book={this.state.user.addressBooks[this.state.selected_book]} />
+          <AddressBookComponent  generateContacts={this.generateContacts}  pagenate={this.pagenate} book={this.state.book} sort={this.sort} displayed={this.state.displayed} address_book={this.state.user.addressBooks[this.state.selected_book]} />
 
       </div>
     );
