@@ -40,6 +40,7 @@
   height: 50px;
   background-color: #282653;
   padding-left: 50px;
+  cursor: pointer;
 }
 
 .navigation li{

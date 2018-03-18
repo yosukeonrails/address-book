@@ -58,6 +58,9 @@ class App extends React.Component {
     }
 
     sort(criteria){
+              
+      if(criteria === this.state.filter ){ return }
+      
       let book = this.state.user.addressBooks[this.state.selected_book];
 
       book.sortBookBy(criteria);
@@ -102,7 +105,7 @@ class App extends React.Component {
    selectBook(id){
       
       let book = this.state.user.addressBooks[id];
-
+      if(id === this.state.selected_book){ return };
       //book.sortBookBy("last_name");
       book.pageNate(book.chunk, book.page );
       book.sortBookBy(book.filter);
