@@ -5,7 +5,7 @@ import Navigation from './components/navigation.js'
 import {contact_list1, contact_list2,contact_list3,contact_list4} from './contacts.js';
 
 let AddressBook = require('./AddressBook.js')
-let User = require('./User.js');
+let User = require('./user.js');
 let address_book_array= [contact_list1, contact_list2,contact_list3,contact_list4];
 
 // creates a mock up user to create mock up data
