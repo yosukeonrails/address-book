@@ -35,6 +35,8 @@
 /* Animations  END */
 
 
+/* NAVIGATION */
+
 .navigation{
   width: 100%;
   height: 50px;
@@ -80,36 +82,9 @@
   text-align: center;
 }
 
-.address-book{
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 50px;
-  min-width: 1000px;
-  padding-bottom: 100px;
-}
 
 
-
-/* NAVIGATION */
-
-
-.address-book #address-book-name{
-  font-size: 1rem; 
-  font-weight: 400; 
-  color: #7F56C5;
-  padding-right: 10px;
-  margin-right: 10px;
-  margin-left: 5px;
-  border-right: 2px solid #dadada;
-}
-
-.address-book-nav{
-  height:30px;
-}
-.address-book-nav span{
-  float: left;
-}
+/* Sorter */ 
 
 .sorter{
   font-size: .85rem;
@@ -132,7 +107,6 @@
 
 .sorter-toggable{
   width: 95px;
-  height: 18px;
   cursor: pointer;
 }
 
@@ -142,126 +116,10 @@
   width: 400px;
 }
 
-.pagenator-left{
-  float: left;
-  width: 165px;
-}
-
-.pagenator{
-  font-size: 0.875rem;
-  font-weight: 700, 400, 700;
-  color: #7F56C5;
-  height: 1px;
-  float: right;
-}
-.pagenator span{
-  float: none;
-}
-.items-per-page{
-  float: left;
-
-}
-.pagenator-chunk {
-  color: #58c2ef;
-  float: left;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.pagenator-arrows{
-  float: right;
-  color: #1DAFE9;
-  margin-right: 20px;
-}
-#pagenator-arrow{
-  margin-left: 10px;
- float: none; 
-  cursor: pointer;
-}
-.items-of-total{
-  float: right;
-}
-
-
-/*  address-book */
-
-.address-book-fields{
-    height: 32px;
-    background: #CACBCE;
-    border-radius: 3px 3px 0 0;
-    font-size: .75rem; 
-    font-weight: 700;
-    color: #95A2AA;
-    width: 100%;
-}
-
-.address-book-fields-col{
-  font-size: .75rem;
-  font-weight: 700;
-  color: #292653;
-  float: left;
-  padding-top: 10px;
-  padding-left: 20px;
-}
-
-.no-addresses{
-  text-align: center;
-  background-color: #fbfbfb;
-  height: 100px;
-  padding-top: 40px;
-}
-
-.no-addresses h1{
-  margin: 0;
-  font-size: 20px;
-  color: #45328e;
-}
-
-.no-addresses input{
-  width: 100px;
-  margin-left: 15px;
-  height: 25px;
-  font-size: 20px;
-}
-
-
-.no-addresses button{
-  margin-top: 10px;
-  font-size: 15px;
-  cursor: pointer;
-  margin-right: 10px;
-  color: white;
-  height: 35px;
-  border: 1px solid #d4d4d4;
-  background-color: #5de0a3;
-  border-radius: 3px;
-}
-.contact{
-  height: 32px;
-  background: #F0F0F0; 
-  border-radius: 3px 3px 0 0;
-  font-size: .75rem; 
-  font-weight: 700;
-  color: #95A2AA;
-  width: 100%;
-}
-
-.contact-fields-col{
-    font-size: .75rem;
-    font-weight: 400; 
-    color: #808285;
-    float: left;
-    padding-top: 10px;
-    padding-left: 20px;
-    overflow: hidden;
-    height: 15px;
-}
-
-
 
 .sorter-options-container{
   width: 150px;
-  margin-top: 10px;
+  margin-top:10px;
   position: absolute;
   opacity:0;
   visibility: hidden;
@@ -318,7 +176,49 @@
   position: relative;
 }
 
-/*pagenate*/
+
+/* Pagenator */
+
+.pagenator-left{
+  float: left;
+  width: 165px;
+}
+
+.pagenator{
+  font-size: 0.875rem;
+  font-weight: 700, 400, 700;
+  color: #7F56C5;
+  height: 1px;
+  float: right;
+}
+.pagenator span{
+  float: none;
+}
+.items-per-page{
+  float: left;
+
+}
+.pagenator-chunk {
+  color: #58c2ef;
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.pagenator-arrows{
+  float: right;
+  color: #1DAFE9;
+  margin-right: 20px;
+}
+#pagenator-arrow{
+  margin-left: 10px;
+ float: none; 
+  cursor: pointer;
+}
+.items-of-total{
+  float: right;
+}
+
 
 #pagenate-arrow{
   font-size: 30px;
@@ -343,6 +243,112 @@
   position: relative;
 }
 
+
+
+/*  Address-book */
+
+.address-book{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  min-width: 1000px;
+  padding-bottom: 100px;
+}
+
+
+.address-book #address-book-name{
+  font-size: 1rem; 
+  font-weight: 400; 
+  color: #7F56C5;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-left: 5px;
+  border-right: 2px solid #dadada;
+}
+
+.address-book-nav{
+  height:30px;
+}
+.address-book-nav span{
+  float: left;
+}
+
+
+.address-book-fields{
+    height: 32px;
+    background: #CACBCE;
+    border-radius: 3px 3px 0 0;
+    font-size: .75rem; 
+    font-weight: 700;
+    color: #95A2AA;
+    width: 100%;
+}
+
+.address-book-fields-col{
+  font-size: .75rem;
+  font-weight: 700;
+  color: #292653;
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.no-addresses{
+  text-align: center;
+  background-color: #fbfbfb;
+  height: 100px;
+  padding-top: 40px;
+}
+
+.no-addresses h1{
+  margin: 0;
+  font-size: 20px;
+  color: #45328e;
+}
+
+.no-addresses input{
+  width: 100px;
+  margin-left: 15px;
+  height: 25px;
+  font-size: 20px;
+}
+
+
+.no-addresses button{
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+  height: 35px;
+  border: 1px solid #d4d4d4;
+  background-color: #5de0a3;
+  border-radius: 3px;
+} 
+
+/*   Contact   */
+
+.contact{
+  height: 32px;
+  background: #F0F0F0; 
+  border-radius: 3px 3px 0 0;
+  font-size: .75rem; 
+  font-weight: 700;
+  color: #95A2AA;
+  width: 100%;
+}
+
+.contact-fields-col{
+    font-size: .75rem;
+    font-weight: 400; 
+    color: #808285;
+    float: left;
+    padding-top: 10px;
+    padding-left: 20px;
+    overflow: hidden;
+    height: 15px;
+}
 
 
 

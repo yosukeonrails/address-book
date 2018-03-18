@@ -94,7 +94,7 @@ By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
    ## `User` and `AddressBook` class."On-Object-Orientation"
 
    The application was built from the beginning, with object oriented programming in mind. Reason being that most functions and data emanates from those two classes.
-   The `User` class is a user that owns many address books and each `AddressBook` class is an address book that holds many contacts. Then each class has methods that will modify or add elements to the data that they hold such as the `sortbookBy` and the `pageNate` methods.
+   The `User` class is a user that owns many address books and each `AddressBook` class is an address book that holds many contacts. Then each class has methods that will modify or add elements to the data that they hold such as the `sortBookBy` and the `pageNate` methods.
 
 
    ## Bonuses!
@@ -106,6 +106,11 @@ By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
    `contactGenerator`
    Inside the `User` class, I created a method called `contactGenerator` which will take an array of contacts and mix and match random first names and last names as well as locations. Then it creates a new array of `n` number of contacts.
+
+   Notice that `sort` function as well as `pagenate` function are able to keep each book with it's own persistant filters, so that 
+   the user is able to look into each adress book by it's own settings.
+
+   
 
 
 

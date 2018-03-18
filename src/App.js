@@ -95,8 +95,6 @@ class App extends React.Component {
         current_chunk:chunk
 
       });
-
-
   }
 
    selectBook(id){
