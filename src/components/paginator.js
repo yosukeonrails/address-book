@@ -6,7 +6,7 @@ class Pagenator extends React.Component {
 
     constructor(props){
        super(props);
-       this.state={ options_open:true, options_animation:"", arrow_style:{}}
+       this.state={ options_open:false, options_animation:"", arrow_style:{}}
        this.selectOption = this.selectOption.bind(this);
        this.selectPage = this.selectPage.bind(this);
     }

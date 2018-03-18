@@ -16,6 +16,7 @@ export class AddressBook extends React.Component {
     }
 
     handleInput(e){
+        
         let num = parseInt(e.target.value);
 
         let vol  = ( num < 0 || num > 100000) ? 1000 : num
@@ -57,7 +58,7 @@ export class AddressBook extends React.Component {
         <div className="address-book-nav">
 
         <div className="nav-left">
-            <span id="address-book-name">{this.props.address_book.name}</span> <Sorter sort= {this.props.sort}/>     
+            <span id="address-book-name">{this.props.address_book.name}</span> <Sorter book={this.props.book} sort= {this.props.sort}/>     
         </div>
        
 

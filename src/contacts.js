@@ -1,4 +1,4 @@
-
+ // This file contains 4 X 1000 list of random contact information
 
 let contact_list1 = [{"first_name":"Crystie","last_name":"Godley","country":"Nepal","address":"5829 Summerview Drive","city":"Ithari","zip":"63215-001","phone":"142-644-3120"},
 {"first_name":"Tabor","last_name":"Rivel","country":"United States","address":"5 Eagle Crest Parkway","city":"Omaha","state":"Nebraska","zip":"64011-124","phone":"402-437-2648"},
