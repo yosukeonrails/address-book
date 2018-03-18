@@ -3,8 +3,6 @@ import Pagenator from './paginator.js';
 import  Sorter  from './sorter.js';
 let Book = require('../AddressBook.js');
 
-
-
 export class AddressBook extends React.Component {
   
    constructor(props){
@@ -18,6 +16,7 @@ export class AddressBook extends React.Component {
     }
 
     handleInput(e){
+        
         let num = parseInt(e.target.value);
 
         let vol  = ( num < 0 || num > 100000) ? 1000 : num
@@ -34,16 +33,15 @@ export class AddressBook extends React.Component {
      
     render() {
 
-    
 
         let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
 
         let contacts = 
-        <div className="no-addresses">
-        <h1> There are no adresses yet.</h1>
-        <button onClick={this.generate} >Generate Random Contacts </button> X
-        <input onChange={ (event)=>{ this.handleInput(event) } } type="number" min="0" max="100000" ></input> 
-        </div>;
+            <div className="no-addresses">
+            <h1> There are no adresses yet.</h1>
+            <button onClick={this.generate} >Generate Random Contacts </button> X
+            <input onChange={ (event)=>{ this.handleInput(event) } } type="number" min="0" max="100000" ></input> 
+            </div>;
 
         if(this.props.displayed.length !== 0 ){
            contacts = this.props.displayed.map((contact,i)=>{
@@ -60,7 +58,7 @@ export class AddressBook extends React.Component {
         <div className="address-book-nav">
 
         <div className="nav-left">
-            <span id="address-book-name">{this.props.address_book.name}</span> <Sorter sort= {this.props.sort}/>     
+            <span id="address-book-name">{this.props.address_book.name}</span> <Sorter book={this.props.book} sort= {this.props.sort}/>     
         </div>
        
 
@@ -105,11 +103,10 @@ class Contact extends React.Component {
     }
 
     render(){
-        
-        let delay = this.props.key;
-     //   animation: "fade-in 0."+delay+"s ease-in forwards", transition:"opacity 300ms ease-out"
-        let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
+
+         let fied_size = {short:"8%", medium:"20%" ,large:"25%"} 
          let color = (this.props.id %2 === 0 ) ? "#F0F0F0" : "#F7F7F7"
+
          return(
            <div className="contact" style={{backgroundColor:color}}>
                 <div style={{width:fied_size.short}} className="contact-fields-col">{this.props.data.first_name}</div>

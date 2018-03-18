@@ -2,20 +2,36 @@
 
 import React, { Component } from 'react';
 let Book = require('../AddressBook.js');
+let fields={
+    first_name:"First Name",
+    last_name:"Last Name",
+    address:"Address",
+    city:"City",
+    state:"State",
+    zip:"Zip",
+    phone:"Phone",
+    country:"Country"
+}
+
+
 
 class Sorter extends React.Component {
+
     constructor(props){
        super(props);
     
         this.selectOption = this.selectOption.bind(this);
-        this.state={ options_open:false,options_animation:"", arrow_style:{}, sortingBy:"Last Name" }
+
+        this.state={ options_open:false,
+            options_animation:"", arrow_style:{}, 
+            sortingBy:"Last Name" }
            
     }
 
     openOptions (options_open){
+
         let arrow= {};
 
-        
         let animation=  (options_open) ? "fade-out" : "fade-in";
         options_open = (options_open) ? false : true;
   
@@ -40,11 +56,13 @@ class Sorter extends React.Component {
                 <span>Sort by:</span>
                 
                 <div className="sorter-criteria" >
+                        <div className="sorter-toggable" onClick={()=>{ this.openOptions(this.state.options_open) }} >
                         <div className="sorter-criteria-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }}> 
-                        <span id="sorter-tag" >{this.state.sortingBy}</span> 
+                        <span id="sorter-tag" >{fields[this.props.book.filter]}</span> 
                         <span id="sorter-arrow-toggle" onClick={()=>{ this.openOptions(this.state.options_open) }} style={this.state.arrow_style}  >{down}</span> 
                         </div>
-                      
+                        </div>
+
                         <div style={{display:this.state.options, opacity:this.state.opacity}}  className={ "sorter-options-container " + this.state.options_animation}>
                                 <div id="sorter-arrow-up" ><i className="fas fa-caret-up"></i></div>
 

@@ -42,7 +42,13 @@ const AddressBook = require('./AddressBook.js');
              let ranLocation= array[Math.floor(Math.random()*max)+0];
           
               for(let key in fields){
-                  ranContact[fields[key]]= (fields[key]!== "first_name" || fields[key]!== "last_name") ? ranLocation[fields[key]] :  array[Math.floor(Math.random()*max)+0][fields[key]];
+                  let random_number = Math.floor( Math.random()*max )+0;
+                  let element = array[random_number][fields[key]];
+
+                 if(fields[key] === "first_name" ){ ranContact[fields[key]]= element }
+                     else if(fields[key] === "last_name" ){ ranContact[fields[key]]= element } 
+                         else{ ranContact[fields[key]]= ranLocation[fields[key]] }         
+                  
               }
               
               new_array.push(ranContact);

@@ -22,6 +22,7 @@ export class Navigation extends React.Component {
          <div>
             {navItems}
          </div>
+
          <div onClick={this.props.addNewBook} className="nav-item new-address-book">
                   <h2><i class="fas fa-plus-square"></i></h2>
          </div>   
@@ -47,10 +48,9 @@ class NavItem extends React.Component {
     }
 
     render (){
-     let backColor= (this.props.selected) ? '#7F56C5' :  '#282653';
 
+         let backColor= (this.props.selected) ? '#7F56C5' :  '#282653';
          return(
-
             <div onClick={()=>{this.select(this.props.id)}} className="nav-item" style={{backgroundColor:backColor}}  >
                 <h1> {this.props.name} </h1>
             </div>
