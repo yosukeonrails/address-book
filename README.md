@@ -12,21 +12,21 @@ By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
    or use the Terminal or Command Line:
 
-   $git clone https://github.com/yosukeonrails/address-book.git
+   $ git clone https://github.com/yosukeonrails/address-book.git
 
 2. Navigate to the folder with Terminal or Command Line:
 
-   $cd address-book
+   $ cd address-book
 
 3. Make sure to have the latest version of Node.
  
    For Macs install through terminal with:
 
-   $brew install node
+   $ brew install node
 
    or to upgrade node:
 
-   $brew upgrade node 
+   $ brew upgrade node 
 
    Or for Windows install through the website:
    https://nodejs.org/en/download/
